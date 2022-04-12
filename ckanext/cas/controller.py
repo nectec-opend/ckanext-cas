@@ -213,6 +213,7 @@ class CASController(UserController):
 
     def cas_callback(self, **kwargs):
         log.debug('Invoked "cas_callback" method.')
+        log.info('callback process')
         cas_plugin = p.get_plugin('cas')
         if t.request.method.lower() == 'get':
             next_url = t.request.params.get('next', '/')
@@ -220,7 +221,8 @@ class CASController(UserController):
             if not ticket:
                 t.response.set_cookie(cas_plugin.LOGIN_CHECKUP_COOKIE, str(time.time()),
                                       max_age=cas_plugin.LOGIN_CHECKUP_TIME)
-                redirect(cas_plugin.CAS_APP_URL + next_url)
+                #redirect(cas_plugin.CAS_APP_URL + next_url)
+                return h.redirect_to(cas_plugin.CAS_APP_URL + next_url)
 
             log.debug('Validating ticket: {0}'.format(ticket))
             q = rq.get(cas_plugin.SERVICE_VALIDATION_URL,
@@ -265,7 +267,7 @@ class CASController(UserController):
             username = self._authenticate_user(username, email, fullname, sysadmin)
             insert_entry(ticket, username)
             if 'user/login' not in next_url:
-                redirect(next_url)
+                return h.redirect_to(next_url)
             redirect(t.h.url_for(controller='user', action='dashboard', id=username))
 
         else:
