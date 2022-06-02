@@ -17,7 +17,7 @@ ckanext-cas
    What does it do? What features does it have?
    Consider including some screenshots or embedding a video!
 เป็น CKAN plugin สำหรับทำ Single Sign On (SSO) สำหรับหน่วยงานหรือองค์กรทำใช้ระบบ Central Authentication Service (CAS) ในการยืนยันตัวตน
-Plugin นี้ได้ทำการ Fork มาจาก `keitaroinc/ckanext-cas <https://github.com/keitaroinc/ckanext-cas>`_ แล้วนำมาปรับปรุงแก้ไขโค้ดให้สามารถใช้งานร่วมกับ CKNA Open-D ได้
+Plugin นี้ได้ทำการ Fork มาจาก `keitaroinc/ckanext-cas <https://github.com/keitaroinc/ckanext-cas>`_ แล้วนำมาปรับปรุงแก้ไขโค้ดให้สามารถใช้งานร่วมกับ CKAN Open-D ได้
 
 ------------
 Special Thanks
